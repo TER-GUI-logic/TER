@@ -2,8 +2,9 @@
 public class Ou extends OpBinaire{
 
 	public Ou(Formule argG,Formule argD) {
-		this.argG=argG;
 		this.argD=argD;
+		this.argG=argG;
+		
 	}
 	@Override
 	String affiche() {

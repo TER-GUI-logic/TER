@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Non extends Formule {
 
@@ -13,5 +14,11 @@ public class Non extends Formule {
 		return "( " +"  Non  " + arg.affiche() + " )"; //affichage Non  
 
 	}
-
+	@Override
+	ArrayList<Formule> getArgs() {
+		// TODO Auto-generated method stub
+		ArrayList<Formule> prof_X = new ArrayList<Formule> ();
+		prof_X.add(arg);
+		return prof_X ;
+	}
 }

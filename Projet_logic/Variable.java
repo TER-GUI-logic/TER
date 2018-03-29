@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Variable extends Formule {
 	private String s;				// a modifier plus tard
@@ -8,6 +9,12 @@ public class Variable extends Formule {
 	@Override
 	String affiche() {
 		return s;
+	}
+
+	@Override
+	ArrayList<Formule> getArgs() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

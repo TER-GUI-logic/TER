@@ -2,8 +2,7 @@
 public class Equivalent extends OpBinaire {
 
 	public Equivalent(Formule argG, Formule argD) {
-		this.argG=argG;
-		this.argD=argD;
+		
 	}
 	@Override
 	String affiche() {

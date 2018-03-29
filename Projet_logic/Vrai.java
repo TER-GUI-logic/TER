@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Vrai extends Formule {
 
@@ -8,6 +9,11 @@ public class Vrai extends Formule {
 	String affiche() {
 		
 		return "( T )";
+	}
+	@Override
+	ArrayList<Formule> getArgs() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

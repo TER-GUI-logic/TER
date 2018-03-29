@@ -4,8 +4,6 @@ public class Implique extends OpBinaire {
 	
 	
 	public Implique(Formule argG , Formule argD) {
-		this.argG=argG;
-		this.argD=argD;
 		
 	}
 
@@ -13,4 +11,6 @@ public class Implique extends OpBinaire {
 	String affiche() {
 		return "( " + argG.affiche() +"  =>  " + argD.affiche() + " )"; //affichage Implique 
 	}
+
+
 }
