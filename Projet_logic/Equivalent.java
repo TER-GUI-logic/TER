@@ -2,7 +2,7 @@
 public class Equivalent extends OpBinaire {
 
 	public Equivalent(Formule argG, Formule argD) {
-		
+		super(argG,argD);
 	}
 	@Override
 	String affiche() {

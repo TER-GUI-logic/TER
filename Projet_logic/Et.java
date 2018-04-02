@@ -1,7 +1,7 @@
 
 public class Et extends OpBinaire{
-	public Et(Formule argG,Formule arg) {
-		
+	public Et(Formule argG,Formule argD) {
+		super(argG,argD);		
 	}
 	@Override
 	String affiche() {

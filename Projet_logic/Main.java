@@ -1,10 +1,17 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+import org.antlr.v4.runtime.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		Formule F = new Ou(new Variable("A"),new Variable("B"));
+		System.out.println("Entrez votre formule :");
+		Scanner sc = new Scanner(System.in);
+		CharStream stream = CharStreams.fromString(sc.nextLine());
+		AnalyseurLexer lexer= new AnalyseurLexer(stream);
+		CommonTokenStream tokens=new CommonTokenStream(lexer);
+		AnalyseurParser parser=new AnalyseurParser(tokens);
+		Formule F = parser.formul().value;
 		ArrayList<Formule> Gamma =new ArrayList<Formule>();
 		ArrayList<Formule> Delta =new ArrayList<Formule>();
 		Delta.add(F);

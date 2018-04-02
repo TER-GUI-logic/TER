@@ -13,7 +13,6 @@ public class Variable extends Formule {
 
 	@Override
 	ArrayList<Formule> getArgs() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
