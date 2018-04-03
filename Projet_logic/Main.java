@@ -5,6 +5,9 @@ import org.antlr.v4.runtime.*;
 public class Main {
 
 	public static void main(String[] args) {
+
+	
+
 		System.out.println("Entrez votre formule :");
 		Scanner sc = new Scanner(System.in);
 		CharStream stream = CharStreams.fromString(sc.nextLine());
@@ -19,10 +22,16 @@ public class Main {
 		//System.out.println(F.affiche());
 		//System.out.println(seq.getDelta().get(0).getArgs().toString());
 		Noeud Racine = seq.noeudpasfini();
-		Racine.fairePreuve(0, Regles.OuD);
-		for (int i=0;i<Racine.getPrems().size();i++){		
-		System.out.println(Racine.getPrems().get(i).getConcl().affiche());
-		}
+
+
+		System.out.println("relgles existantes: \nAxiome,cut,EtG,EtD,OuG,OuD,NonG,NonD,contG,contD,\nFauxG,VraiD,ImpliqueG,ImpliqueD,EquivalentG1,EquivalentG2,EquivalentD");
+		Scanner sc1 = new Scanner(System.in);
+
+
+
+		Racine.fairePreuve(0, Regles.valueOf(sc1.nextLine()));
+		System.out.println(Racine.getPrems().get(0).affiche());
+		
 		
 	}
 

@@ -6,4 +6,11 @@ abstract public class Preuve {
 		return concl;
 	}
 
+    public String affiche(){
+    	
+		return concl.affiche();
+		
+    	
+    }
+
 }

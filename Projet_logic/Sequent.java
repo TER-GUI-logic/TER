@@ -39,15 +39,23 @@ public class Sequent {
 	}
 	
 	public String affiche(){
-		String staline = null;//nom a changer
-		for(int i=0;i<Gamma.size();i++){
-			staline+=Gamma.get(i).affiche()+" ";
+		String S = "";
+		if(Gamma.size()!=0){
+		S+=Gamma.get(0).affiche()+" ";
+
+
+		for(int i=1;i<Gamma.size();i++){
+			S+=", "+Gamma.get(i).affiche();
 		}
-		staline+=" |-- ";
-		for(int i=0;i<Delta.size();i++){
-			staline+=Delta.get(i).affiche()+" ";
 		}
-		return staline;
+		S+=" |-- ";
+		if(Delta.size()!=0){
+		S+=Delta.get(0).affiche()+" ";
+		for(int i=1;i<Delta.size();i++){
+			S+=", "+Delta.get(i).affiche();
+		}
+	}
+		return S;
 	}
 
 }

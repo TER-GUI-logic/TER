@@ -13,7 +13,6 @@ public class Noeud extends Preuve{
 		this.rule = rule;
 	}
 
-    
 	
 	//methodes
 	

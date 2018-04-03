@@ -21,6 +21,7 @@ EquivalentG2,
 EquivalentD;
 
 
+
 /*	public Sequent ImpRight(Sequent Se,int i) {
 		Sequent S= Se;
 		if (S.getDelta().get(i).getClass().getName()=="Implique"){
