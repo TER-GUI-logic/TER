@@ -13,16 +13,13 @@ public class Sequent {
 	
 
 	public Formule Resoudre() {
-		
-		
-		
-		
-		
 		return null;
 		
 	}
 	
-	
+	public Feuille feuille(){
+		return new Feuille(this);
+	}
 
 
 	public Noeud noeudpasfini(){

@@ -23,14 +23,20 @@ public class Main {
 		//System.out.println(seq.getDelta().get(0).getArgs().toString());
 		Noeud Racine = seq.noeudpasfini();
 
-
-		System.out.println("relgles existantes: \nAxiome,cut,EtG,EtD,OuG,OuD,NonG,NonD,contG,contD,\nFauxG,VraiD,ImpliqueG,ImpliqueD,EquivalentG1,EquivalentG2,EquivalentD");
+		System.out.println("Quel est la position de formule sur laquelle on applique la regle? \n       'debute a 0 pour chaque cote de la these' ");
 		Scanner sc1 = new Scanner(System.in);
 
+		int i = sc1.nextInt();
+		
+
+		System.out.println("relgles existantes: \nAxiome,cut,EtG,EtD,OuG,OuD,NonG,NonD,contG,contD,\nFauxG,VraiD,ImpliqueG,ImpliqueD,EquivalentG1,EquivalentG2,EquivalentD");
+		Scanner sc2 = new Scanner(System.in);
+		String scc= sc2.nextLine();
 
 
-		Racine.fairePreuve(0, Regles.valueOf(sc1.nextLine()));
-		System.out.println(Racine.getPrems().get(0).affiche());
+		Racine.fairePreuve(i, Regles.valueOf(scc));
+		Racine.display();
+		//System.out.println(Racine.getPrems().get(i).affiche());
 		
 		
 	}

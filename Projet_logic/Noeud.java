@@ -18,8 +18,8 @@ public class Noeud extends Preuve{
 	
 	public void fairePreuve( int i, Regles r){
 		ArrayList<Formule> args;
-		Sequent S= concl;
-		Sequent S2 = concl;
+		Sequent S=  new Sequent(concl.getGamma(),concl.getDelta());
+		Sequent S2 = new Sequent(concl.getGamma(),concl.getDelta());
 		ArrayList<Preuve> P= new ArrayList<Preuve>();
 		Formule f;
 		
@@ -145,7 +145,18 @@ public class Noeud extends Preuve{
 				P.add(S2.noeudpasfini());
 			}else{System.out.println("erreur");}
 			break;
-			
+		
+
+		case Axiome:
+			for(int k=0;k<S.getGamma().size();k++){
+				for(int j=0;j<S.getDelta().size();j++){
+					if(S.getGamma().get(k).getClass()== S.getDelta().get(j).getClass() && S.getDelta().get(j).getClass().getName()== "Variable" && S.getDelta().get(j).affiche()==S.getGamma().get(k).affiche()){
+						P.add(S.feuille());
+					}
+
+				}
+			}
+
 		case contG:
 			f=S.getGamma().get(i);
 			S.getGamma().add(f);
@@ -170,6 +181,19 @@ public class Noeud extends Preuve{
 	public ArrayList<Preuve> getPrems() {
 		return prems;
 	}
+
+
+	public void display(){
+		String s="";
+		System.out.println(concl.affiche());
+		if(prems.size()==2){
+			s=prems.get(0).affiche() + "   "+ prems.get(1).affiche();
+		}else if (prems.size()==1){
+			s=prems.get(0).affiche();
+		}
+		System.out.println(s);
+	}
+
 }
 
 

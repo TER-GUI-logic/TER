@@ -3,10 +3,12 @@ public class Feuille extends Preuve{
 	
 	//attributs
 	
-	Sequent concl;	
+	
 	
 	//constructeurs
-	
+	public Feuille(Sequent concl){
+		this.concl=concl;
+	}
 	
 	//methodes
 	
