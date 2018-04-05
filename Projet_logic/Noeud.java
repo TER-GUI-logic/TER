@@ -18,8 +18,8 @@ public class Noeud extends Preuve{
 	
 	public void fairePreuve( int i, Regles r){
 		ArrayList<Formule> args;
-		Sequent S=  new Sequent(concl.getGamma(),concl.getDelta());
-		Sequent S2 = new Sequent(concl.getGamma(),concl.getDelta());
+		Sequent S=  new Sequent(new ArrayList<Formule>(concl.getGamma()),new ArrayList<Formule>(concl.getDelta()));
+		Sequent S2 = new Sequent(new ArrayList<Formule>(concl.getGamma()),new ArrayList<Formule>(concl.getDelta()));
 		ArrayList<Preuve> P= new ArrayList<Preuve>();
 		Formule f;
 		
@@ -172,7 +172,7 @@ public class Noeud extends Preuve{
 			P.add(S.noeudpasfini());
 			break;
 			
-			default:System.out.println("erreur");
+		default:System.out.println("erreur");
 		}
 				
 		prems=P;

@@ -6,10 +6,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
-	
+		Scanner sc = new Scanner(System.in);
+		String requete="";
+		Noeud noeudCourant;
+		ArrayList<Preuve> premisses;
 
 		System.out.println("Entrez votre formule :");
-		Scanner sc = new Scanner(System.in);
+
 		CharStream stream = CharStreams.fromString(sc.nextLine());
 		AnalyseurLexer lexer= new AnalyseurLexer(stream);
 		CommonTokenStream tokens=new CommonTokenStream(lexer);
@@ -19,26 +22,42 @@ public class Main {
 		ArrayList<Formule> Delta =new ArrayList<Formule>();
 		Delta.add(F);
 		Sequent seq=new Sequent(Gamma,Delta);
-		//System.out.println(F.toString());
-		//System.out.println(seq.getDelta().get(0).getArgs().toString());
 		Noeud Racine = seq.noeudpasfini();
+		noeudCourant = Racine;
 
-		System.out.println("Quel est la position de formule sur laquelle on applique la regle? \n       'debute a 0 pour chaque cote de la these' ");
-		Scanner sc1 = new Scanner(System.in);
+		while(!requete.equals("S"))
+		{
+			System.out.println(noeudCourant.toString());
 
-		int i = sc1.nextInt();
-		
+			System.out.println("Quelle est la prochaine etape ?\nR : retourner a la racine             P : faire une preuve sur ce noeud"+
+				"\nG : aller sur le noeud de gauche      D : aller sur le noeud de droite\nS : Arreter");
+			requete = sc.nextLine();
+			switch(requete){
+				case "R":
+					noeudCourant=Racine;
+				break;
 
-		System.out.println("relgles existantes: \nAxiome,cut,EtG,EtD,OuG,OuD,NonG,NonD,contG,contD,\nFauxG,VraiD,ImpliqueG,ImpliqueD,EquivalentG1,EquivalentG2,EquivalentD");
-		Scanner sc2 = new Scanner(System.in);
-		String scc= sc2.nextLine();
+				case "G":
+						noeudCourant=(Noeud) (noeudCourant.getPrems()).get(0);
+				break;
 
+				case "D":
+						noeudCourant=(Noeud) (noeudCourant.getPrems()).get(1);
+				break;
+			
+				case "P":
+					System.out.println("Quelle est la position de formule sur laquelle on applique la regle? \n       'debute a 0 pour chaque cote de la these' ");
+					int i = sc.nextInt();
+					sc.nextLine();
 
-		Racine.fairePreuve(i, Regles.valueOf(scc));
-		System.out.println(Racine.toString());
-		//System.out.println(Racine.getPrems().get(i).toString());
-		
-		
+					System.out.println("Regles a appliquer : \nAxiome, cut, EtG, EtD, OuG, OuD, NonG, NonD, contG, contD"+
+						"\nFauxG, VraiD, ImpliqueG, ImpliqueD, EquivalentG1, EquivalentG2, EquivalentD");
+					String scc= sc.nextLine();
+
+					noeudCourant.fairePreuve(i, Regles.valueOf(scc));
+				break;
+			}
+		}
 	}
 
 }

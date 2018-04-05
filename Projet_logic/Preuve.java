@@ -6,11 +6,6 @@ abstract public class Preuve {
 		return concl;
 	}
 
-    public String toString(){
-    	
-		return concl.toString();
-		
-    	
-    }
+    public abstract String toString();
 
 }
