@@ -6,8 +6,7 @@ public class Variable extends Formule {
 		this.s=s;
 	}
 	
-	@Override
-	String affiche() {
+	public String toString() {
 		return s;
 	}
 

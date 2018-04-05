@@ -19,7 +19,7 @@ public class Main {
 		ArrayList<Formule> Delta =new ArrayList<Formule>();
 		Delta.add(F);
 		Sequent seq=new Sequent(Gamma,Delta);
-		//System.out.println(F.affiche());
+		//System.out.println(F.toString());
 		//System.out.println(seq.getDelta().get(0).getArgs().toString());
 		Noeud Racine = seq.noeudpasfini();
 
@@ -35,8 +35,8 @@ public class Main {
 
 
 		Racine.fairePreuve(i, Regles.valueOf(scc));
-		Racine.display();
-		//System.out.println(Racine.getPrems().get(i).affiche());
+		System.out.println(Racine.toString());
+		//System.out.println(Racine.getPrems().get(i).toString());
 		
 		
 	}

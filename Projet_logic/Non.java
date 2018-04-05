@@ -9,9 +9,9 @@ public class Non extends Formule {
 	public Non(Formule arg) {
 		this.arg=arg;
 	}
-	@Override
-	String affiche() {
-		return "( " +"Non " + arg.affiche() + " )"; //affichage Non  
+	
+	public String toString() {
+		return "( " +"Non " + arg.toString() + " )"; //affichage Non  
 
 	}
 	@Override

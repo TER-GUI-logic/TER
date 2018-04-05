@@ -6,9 +6,9 @@ abstract public class Preuve {
 		return concl;
 	}
 
-    public String affiche(){
+    public String toString(){
     	
-		return concl.affiche();
+		return concl.toString();
 		
     	
     }

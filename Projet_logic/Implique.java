@@ -7,9 +7,9 @@ public class Implique extends OpBinaire {
 		super(argG,argD);
 	}
 
-	@Override
-	String affiche() {
-		return "( " + argG.affiche() +"  =>  " + argD.affiche() + " )"; //affichage Implique 
+	
+	public String toString() {
+		return "( " + argG.toString() +"  =>  " + argD.toString() + " )"; //affichage Implique 
 	}
 
 

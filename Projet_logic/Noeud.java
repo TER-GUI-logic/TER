@@ -150,12 +150,15 @@ public class Noeud extends Preuve{
 		case Axiome:
 			for(int k=0;k<S.getGamma().size();k++){
 				for(int j=0;j<S.getDelta().size();j++){
-					if(S.getGamma().get(k).getClass()== S.getDelta().get(j).getClass() && S.getDelta().get(j).getClass().getName()== "Variable" && S.getDelta().get(j).affiche()==S.getGamma().get(k).affiche()){
+					if(S.getGamma().get(k).getClass()== S.getDelta().get(j).getClass() 
+						&& S.getDelta().get(j).getClass().getName()== "Variable" 
+						&& S.getDelta().get(j).toString()==S.getGamma().get(k).toString()){
 						P.add(S.feuille());
 					}
 
 				}
 			}
+			break;
 
 		case contG:
 			f=S.getGamma().get(i);
@@ -183,15 +186,15 @@ public class Noeud extends Preuve{
 	}
 
 
-	public void display(){
+	public String toString(){
 		String s="";
-		System.out.println(concl.affiche());
 		if(prems.size()==2){
-			s=prems.get(0).affiche() + "   "+ prems.get(1).affiche();
+			s+=prems.get(0).toString() + "   "+ prems.get(1).toString()+"\n";
 		}else if (prems.size()==1){
-			s=prems.get(0).affiche();
+			s=prems.get(0).toString()+"\n";
 		}
-		System.out.println(s);
+		s+=concl.toString();
+		return s;
 	}
 
 }

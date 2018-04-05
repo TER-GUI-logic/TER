@@ -5,8 +5,8 @@ public class Vrai extends Formule {
 	public Vrai() {
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	String affiche() {
+	
+	public String toString() {
 		
 		return "( T )";
 	}

@@ -35,21 +35,21 @@ public class Sequent {
 		return Delta;
 	}
 	
-	public String affiche(){
+	public String toString(){
 		String S = "";
 		if(Gamma.size()!=0){
-		S+=Gamma.get(0).affiche()+" ";
+		S+=Gamma.get(0).toString()+" ";
 
 
 		for(int i=1;i<Gamma.size();i++){
-			S+=", "+Gamma.get(i).affiche();
+			S+=", "+Gamma.get(i).toString();
 		}
 		}
 		S+=" |-- ";
 		if(Delta.size()!=0){
-		S+=Delta.get(0).affiche()+" ";
+		S+=Delta.get(0).toString()+" ";
 		for(int i=1;i<Delta.size();i++){
-			S+=", "+Delta.get(i).affiche();
+			S+=", "+Delta.get(i).toString();
 		}
 	}
 		return S;
