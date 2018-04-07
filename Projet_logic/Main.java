@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import org.antlr.v4.runtime.*;
 
 public class Main {
@@ -9,7 +10,6 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		String requete="";
 		Noeud noeudCourant;
-		ArrayList<Preuve> premisses;
 
 		System.out.println("Entrez votre formule :");
 
@@ -27,10 +27,11 @@ public class Main {
 
 		while(!requete.equals("S"))
 		{
-			System.out.println(noeudCourant.toString());
+			//System.out.println("\n"+noeudCourant.toString()+"\n");
+			noeudCourant.affiche();
 
-			System.out.println("Quelle est la prochaine etape ?\nR : retourner a la racine             P : faire une preuve sur ce noeud"+
-				"\nG : aller sur le noeud de gauche      D : aller sur le noeud de droite\nS : Arreter");
+			System.out.println("Quelle est la prochaine etape ?\nR : Retourner a la racine             P : Faire une preuve sur ce noeud"+
+				"\nG : Aller sur le noeud de gauche      D : Aller sur le noeud de droite\nS : Arreter");
 			requete = sc.nextLine();
 			switch(requete){
 				case "R":
@@ -46,18 +47,25 @@ public class Main {
 				break;
 			
 				case "P":
-					System.out.println("Quelle est la position de formule sur laquelle on applique la regle? \n       'debute a 0 pour chaque cote de la these' ");
-					int i = sc.nextInt();
-					sc.nextLine();
-
 					System.out.println("Regles a appliquer : \nAxiome, cut, EtG, EtD, OuG, OuD, NonG, NonD, contG, contD"+
 						"\nFauxG, VraiD, ImpliqueG, ImpliqueD, EquivalentG1, EquivalentG2, EquivalentD");
 					String scc= sc.nextLine();
-
-					noeudCourant.fairePreuve(i, Regles.valueOf(scc));
+					int i=-1;
+					try{
+						if(!scc.equals("Axiome")){
+							System.out.println("Quelle est la position de formule sur laquelle on applique la regle?\n       'debute a 0 pour chaque cote de la these' ");
+							i = sc.nextInt();
+							sc.nextLine();
+						}
+						noeudCourant.fairePreuve(i, Regles.valueOf(scc));
+					}
+					catch(InputMismatchException e){
+													sc.nextLine();
+													System.out.println("Erreur : pas un entier");}
+					catch(IllegalArgumentException e){System.out.println("Nom de regle non valide");}
+					catch(IndexOutOfBoundsException e){System.out.println("Position non valide");}
 				break;
 			}
 		}
 	}
-
 }

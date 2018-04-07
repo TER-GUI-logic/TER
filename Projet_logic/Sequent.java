@@ -38,7 +38,7 @@ public class Sequent {
 	public String toString(){
 		String S = "";
 		if(Gamma.size()!=0){
-		S+=Gamma.get(0).toString()+" ";
+		S+=Gamma.get(0).toString();
 
 
 		for(int i=1;i<Gamma.size();i++){
@@ -47,7 +47,7 @@ public class Sequent {
 		}
 		S+=" |-- ";
 		if(Delta.size()!=0){
-		S+=Delta.get(0).toString()+" ";
+		S+=Delta.get(0).toString();
 		for(int i=1;i<Delta.size();i++){
 			S+=", "+Delta.get(i).toString();
 		}
