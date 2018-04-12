@@ -1,12 +1,12 @@
-# (Interface graphique pour )réaliser des preuves en logique classique
+# (Interface graphique pour) réaliser des preuves en logique classique
 
 ## Commencement:
 
-Pour le bon fonctionnement du programme sur votre machine local suivre les taches suivantes.
+Pour le bon fonctionnement du programme sur votre machine locale suivre les tâches suivantes.
 
-### Prerequis:
+### Prérequis:
 
-Nous vous invitons a verifier que vous avez la version la plus recente du Java Development Kit(JDK)
+Nous vous invitons à vérifier que vous avez la version la plus récente du Java Development Kit(JDK)
 
 ```
   JDK 9.0.4
@@ -15,32 +15,37 @@ Nous vous invitons a verifier que vous avez la version la plus recente du Java D
 
 ### Installation
 
-Le JDK doit etre installer et ajouté au variable d'environnement:
+Le JDK et Antlr doivent être installés et ajoutés aux variables d'environnement:
 
+#### Windows :
 ```
-Parametres systeme avancés
+Paramètres système avancés
 -variables d'environnement
---variables systeme
----selectionner CLASSPATH puis modifier,si elle n'existe pas cliqué sur Nouvelle
----une fois modifier cliquer sur OK
-```
+--variables système
+---sélectionner PATH puis modifier,si elle n'existe pas cliquer sur Nouvelle
+---indiquez la valeur de la variable d'environnement PATH vers votre ..\java\jdk?.?.?\bin
+---une fois modifiée cliquer sur OK
 
-Antlr peut etre ajouté temporairement aux variables d'environnement directement dans un invité de commande 
+---sélectionner CLASSPATH puis modifier,si elle n'existe pas cliquer sur Nouvelle
+---indiquez la valeur de la variable d'environnement CLASSPATH vers votre antlr-4.7.1-complete.jar
+---une fois modifiée cliquer sur OK
+```
+#### Linux: 
+
+dans un invité de commande 
 
 ```
 $ export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
-$ alias antlr4='java -jar /usr/local/lib/antlr-4.7.1-complete.jar'
-$ alias grun='java org.antlr.v4.gui.TestRig'
 ```
 
 ### Lancer un test
-Il est temps d'essayer notre programme. Je vous invite a ouvrir votre invité de commande directement dans le dossier ```Ter-GUI-logic``` une fois cette dernier ouverte(si vous avez fermer la fenetre depuis l'ajoutdes variable d'Antlr, les ajouter de nouveau). Compiler l'ensemble des fichiers .java.
+Il est temps d'essayer notre programme. Je vous invite à ouvrir votre invité de commande directement dans le dossier ```Ter-GUI-logic``` une fois cette dernière ouverte(si vous avez fermé la fenêtre depuis l'ajout de la variable d'Antlr, l'ajouter de nouveau). Compiler l'ensemble des fichiers .java.
 
 ```
 javac *.java
 ```
 
-et executer le Main.
+et exécuter le Main.
 
 ```
 java Main
