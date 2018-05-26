@@ -8,7 +8,7 @@ public class Noeud extends Preuve{
     
 	//constructeurs
 	public Noeud(Sequent concl, ArrayList<Preuve> prems, String rule) {
-		this.concl = concl;
+		this.concl=concl;
 		this.prems = prems;
 		this.rule = rule;
 	}
@@ -17,7 +17,6 @@ public class Noeud extends Preuve{
 	//methodes
 	
 	public void fairePreuve( int i, Regles r){
-		rule=r.toString();
 		ArrayList<Formule> args;
 		Sequent S=  new Sequent(new ArrayList<Formule>(concl.getGamma()),new ArrayList<Formule>(concl.getDelta()));
 		Sequent S2 = new Sequent(new ArrayList<Formule>(concl.getGamma()),new ArrayList<Formule>(concl.getDelta()));
@@ -32,6 +31,7 @@ public class Noeud extends Preuve{
 				S.getGamma().add(args.get(0));
 				S.getGamma().add(args.get(1));
 				P.add(S.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un /\\");}
 			break;
 			
@@ -44,6 +44,7 @@ public class Noeud extends Preuve{
 				S2.getDelta().add(args.get(1));
 				P.add(S.noeudpasfini());
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un /\\");}
 			break;
 			
@@ -56,6 +57,7 @@ public class Noeud extends Preuve{
 				S2.getGamma().add(args.get(1));
 				P.add(S.noeudpasfini());
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un \\/");}
 		break;
 			
@@ -66,6 +68,7 @@ public class Noeud extends Preuve{
 				S.getDelta().add(args.get(0));
 				S.getDelta().add(args.get(1));
 				P.add(S.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un \\/");}
 			break;
 			
@@ -75,6 +78,7 @@ public class Noeud extends Preuve{
 				S.getGamma().remove(i);
 				S.getDelta().add(args.get(0));
 				P.add(S.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un non");}
 			break;
 			
@@ -84,6 +88,7 @@ public class Noeud extends Preuve{
 				S.getDelta().remove(i);
 				S.getGamma().add(args.get(0));
 				P.add(S.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un non");}
 			break;
 		
@@ -96,6 +101,7 @@ public class Noeud extends Preuve{
 				S2.getGamma().add(args.get(1));
 				P.add(S.noeudpasfini());
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un =>");}
 			break;
 			
@@ -106,6 +112,7 @@ public class Noeud extends Preuve{
 				S.getGamma().add(args.get(0));
 				S.getDelta().add(args.get(1));
 				P.add(S.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un =>");}
 			break;
 
@@ -118,6 +125,7 @@ public class Noeud extends Preuve{
 				S2.getGamma().add(args.get(1));
 				P.add(S.noeudpasfini());	
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un <=>");}
 			break;
 			
@@ -130,6 +138,7 @@ public class Noeud extends Preuve{
 				S2.getGamma().add(args.get(0));
 				P.add(S.noeudpasfini());	
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un <=>");}
 			break;
 			
@@ -144,6 +153,7 @@ public class Noeud extends Preuve{
 				S2.getDelta().add(args.get(0));
 				P.add(S.noeudpasfini());
 				P.add(S2.noeudpasfini());
+				rule=r.toString();
 			}else{System.out.println("Erreur : le symbole de tete n'est pas un <=>");}
 			break;
 		
@@ -159,6 +169,7 @@ public class Noeud extends Preuve{
 
 						P.add(S.feuille());
 						test=false;
+						rule=r.toString();
 					}
 				}
 			}
@@ -169,12 +180,14 @@ public class Noeud extends Preuve{
 			f=S.getGamma().get(i);
 			S.getGamma().add(f);
 			P.add(S.noeudpasfini());
+			rule=r.toString();
 			break;
 			
 		case contD:
 			f=S.getDelta().get(i);
 			S.getDelta().add(f);
 			P.add(S.noeudpasfini());
+			rule=r.toString();
 			break;
 			
 		default:System.out.println("Regle non implementee");
@@ -190,17 +203,6 @@ public class Noeud extends Preuve{
 		return prems;
 	}
 
-
-	public String toString(){
-		String s="";
-		if(prems.size()==2){
-			s+=prems.get(0).toString() + "   "+ prems.get(1).toString()+"\n";
-		}else if (prems.size()==1){
-			s=prems.get(0).toString()+"\n";
-		}
-		s+=concl.toString();
-		return s;
-	}
 
 	public ArrayList<String> listString(){
 		int offset=0;
@@ -224,10 +226,12 @@ public class Noeud extends Preuve{
 	}
 
 	public void affiche(){
+		System.out.println();
 		ArrayList<String> list=listString();
 		for (int i=0;i<list.size();i++){
 			System.out.println(list.get(i));
 		}
+		System.out.println();
 	}
 
 	private ArrayList<String> fusion(ArrayList<String> listG, ArrayList<String> listD){
@@ -256,6 +260,13 @@ public class Noeud extends Preuve{
 		}
 		return list;
 	}
+
+	public boolean estValide(){
+		if (prems.size()==1)
+			return prems.get(0).estValide();
+		if (prems.size()==2)
+			return (prems.get(0).estValide() && prems.get(1).estValide());
+		else
+			return false;
+	}
 }
-
-

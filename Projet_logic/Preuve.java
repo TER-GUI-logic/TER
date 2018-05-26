@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-abstract public class Preuve {
+public abstract class Preuve {
 	Sequent concl;
 
 	public Sequent getConcl() {
 		return concl;
 	}
 
-    public abstract String toString();
+    public abstract boolean estValide();
     public abstract ArrayList<String> listString();
 
 }
