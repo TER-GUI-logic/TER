@@ -10,15 +10,7 @@ public class Feuille extends Preuve{
 	}
 	
 	//methodes
-	public ArrayList<String> listString(){
-		/*
-		ArrayList<String> list= new ArrayList<String>();
-		String s=new String(new char[concl.toString().length()]).replace("\0","-");
-		s+="Ax";
-		list.add(s);
-		list.add(concl.toString());
-		return list;
-		*/
+	public ArrayList<String> listString(boolean mode){
 		return new ArrayList<String>();
 	}
 

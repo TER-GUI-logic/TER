@@ -8,6 +8,6 @@ public abstract class Preuve {
 	}
 
     public abstract boolean estValide();
-    public abstract ArrayList<String> listString();
+    public abstract ArrayList<String> listString(boolean mode);
 
 }
