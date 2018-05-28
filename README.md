@@ -51,10 +51,65 @@ et exécuter le Main.
 java Main
 ```
 
-Il ne reste qu'a suivre les indications.
+Ou executer avec l'interface graphique:
+
+```
+javac *.java
+java Graphique
+```
 
 ### Exemple
 ```
-((A\/B)=>A)
+Entrez votre nombre d'hypotheses suivi du nombre de conclusions de votre sequent :
+0 1
+
+(ou) 
+
+0
+1
 ```
+```
+Entrez  votre conclusion 1 :
+((A/\B)=>B)
+
+------------------------Encours
+ |-- ( ( A /\ B ) => B )
+```
+
+```
+P: faire une preuve sur ce noeud
+P
+
+Regles a appliquer : 
+Axiome, cut, EtG, EtD, OuG, OuD, NonG, NonD, contG, contD
+FauxG, VraiD, ImpliqueG, ImpliqueD, EquivalentG1, EquivalentG2, EquivalentD
+ImpliqueD
+Quelle est la position de formule sur laquelle on applique la regle?
+       'debute a 0 pour chaque cote de la these' 
+0
+
+
+----------------Encours
+( A /\ B ) |-- B
+------------------------ImpliqueD
+ |-- ( ( A /\ B ) => B )
+```
+
+...
+
+```
+V : Verifier si la preuve est terminee
+V
+
+Preuve terminee et formule valide !
+
+----------Axiome
+A, B |-- B
+----------------EtG
+( A /\ B ) |-- B
+------------------------ImpliqueD
+ |-- ( ( A /\ B ) => B )
+
+```
+
 

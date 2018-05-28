@@ -242,10 +242,10 @@ public class Noeud extends Preuve{
 
 
 	public ArrayList<String> listString(boolean mode){
-		int offset=0;
+		int offset=0,taille;
 		ArrayList<String> list=new ArrayList<String>();
-		String s=new String(new char[concl.toString().length()]).replace("\0","-");
-		s+=rule;
+		String s;
+
 		if(prems.size()==2){
 			ArrayList<String> listG=prems.get(0).listString(mode);
 			ArrayList<String> listD=prems.get(1).listString(mode);
@@ -259,6 +259,12 @@ public class Noeud extends Preuve{
 		}else if (prems.size()==1){
 			list=prems.get(0).listString(mode);
 		}
+		if (list.size()==0)
+			taille=concl.toString().length();
+		else
+			taille = Math.max(concl.toString().length(),list.get(list.size()-1).length());
+		s=new String(new char[taille]).replace("\0","-");
+		s+=rule;
 		list.add(s);
 		list.add(concl.toString());
 		return list;

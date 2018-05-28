@@ -6,6 +6,6 @@ public class Ou extends OpBinaire{
 	}
 	
 	public String toString() {
-		return "( " + argG.toString() +"  v  " + argD.toString() + " )"; //affichage Ou
+		return "( " + argG.toString() +" \\/ " + argD.toString() + " )"; //affichage Ou
 	}
 }

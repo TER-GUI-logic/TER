@@ -6,6 +6,6 @@ public class Equivalent extends OpBinaire {
 	}
 	
 	public String toString() {
-		return "( " + argG.toString() +"  <=>  " + argD.toString() + " )"; //affichage comme l'Implique mais dans les deux sens
+		return "( " + argG.toString() +" <=> " + argD.toString() + " )"; //affichage comme l'Implique mais dans les deux sens
 	}
 }

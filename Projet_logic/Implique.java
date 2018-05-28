@@ -9,7 +9,7 @@ public class Implique extends OpBinaire {
 
 	
 	public String toString() {
-		return "( " + argG.toString() +"  =>  " + argD.toString() + " )"; //affichage Implique 
+		return "( " + argG.toString() +" => " + argD.toString() + " )"; //affichage Implique 
 	}
 
 

@@ -5,6 +5,6 @@ public class Et extends OpBinaire{
 	}
 	
 	public String toString() {
-		return "( " + argG.toString() +"  ^ " + argD.toString() + " )"; //affichage Et , alt-8743 
+		return "( " + argG.toString() +" /\\ " + argD.toString() + " )"; //affichage Et , alt-8743 
 	}
 }

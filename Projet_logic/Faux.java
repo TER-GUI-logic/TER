@@ -7,7 +7,7 @@ public class Faux extends Formule {
 	}
 	
 	public String toString() {
-		return "( faux )";
+		return "( Bottom )";
 	}
 	
 	@Override

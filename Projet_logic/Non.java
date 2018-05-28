@@ -11,7 +11,7 @@ public class Non extends Formule {
 	}
 	
 	public String toString() {
-		return "( " +"Non " + arg.toString() + " )"; //affichage Non  
+		return "( Non " + arg.toString() + " )"; //affichage Non  
 
 	}
 	@Override

@@ -8,7 +8,7 @@ public class Vrai extends Formule {
 	
 	public String toString() {
 		
-		return "( T )";
+		return "( Top )";
 	}
 	@Override
 	ArrayList<Formule> getArgs() {
